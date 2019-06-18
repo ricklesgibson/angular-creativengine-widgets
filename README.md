@@ -1,4 +1,26 @@
 # CreativengineWidgets
+## Specs
+
+Please review and let us know when you will be able to complete this.
+
+Feel free to reach out to us if you have any questions.
+
+Angular Technical Challenge
+
+Set up an angular material (https://material.angular.io/) project to provide CRUD functionality for widgets. Widgets should have an id, title, date, price and description. There should be separate routes for the list and detail pages. 
+
+
+The list page should utilize an angular material data table with a local datasource. It should be sortable, searchable, paginated, and contain links to a detail page for each widget. The detail page should use appropriate angular material components (e.g. date selectors for the date field).
+
+
+Bonus challenges: 
+
+
+add a core service for the app to notify users that a widget has been created, updated or deleted.
+
+incorporate a rich text editor for the widget description field.
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
@@ -25,3 +47,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
