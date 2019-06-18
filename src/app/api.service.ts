@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, of, throwError} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {catchError, tap, map} from 'rxjs/operators';
-import {Widget} from './Widget';
+import {Widget} from './widget';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -30,6 +30,14 @@ export class ApiService {
         tap(heroes => console.log('retrieved widgets')),
         catchError(this.handleError('getWidgets', []))
       );
+  }
+
+  getWidget(id: number): Observable<Widget> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.get<Widget>(url).pipe(
+      tap(_ => console.log(`retrieved widget id is ${id}'`)),
+      catchError(this.handleError<Widget>(`getWidget id=${id}`))
+    );
   }
 
   addWidget(widget): Observable<Widget> {

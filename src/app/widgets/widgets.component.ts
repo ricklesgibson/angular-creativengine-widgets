@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../api.service';
+import {Widget} from '../widget';
+
 
 @Component({
   selector: 'app-widgets',
@@ -6,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./widgets.component.css']
 })
 export class WidgetsComponent implements OnInit {
+  displayedColumns: ['title', 'price', 'desc', 'date'];
+  data: Widget[] = [];
+  isLoadingResults = true;
 
-  constructor() { }
+  constructor(private api: ApiService) {
+  }
 
   ngOnInit() {
+    this.api.getWidgets()
+      .subscribe(res => {
+        this.data = res;
+        console.log(this.data);
+        this.isLoadingResults = false;
+      }, err => {
+        console.log(err);
+        this.isLoadingResults = false;
+      });
   }
 
 }
