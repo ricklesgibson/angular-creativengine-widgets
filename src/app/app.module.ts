@@ -3,12 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WidgetComponent } from './widget/widget.component';
+import { WidgetsComponent } from './widgets/widgets.component';
+import { WidgetInfoComponent } from './widget-info/widget-info.component';
+import { WidgetAddComponent } from './widget-add/widget-add.component';
+import { WidgetEditComponent } from './widget-edit/widget-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WidgetComponent
+    WidgetsComponent,
+    WidgetInfoComponent,
+    WidgetAddComponent,
+    WidgetEditComponent
   ],
   imports: [
     BrowserModule,
