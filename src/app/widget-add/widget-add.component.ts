@@ -10,8 +10,8 @@ import {FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validat
 })
 export class WidgetAddComponent implements OnInit {
   widgetForm: FormGroup;
-  title: string = '';
-  desc: string = '';
+  title = '';
+  desc = '';
   price: number = null;
   date: Date = null;
   isLoadingResults = false;
@@ -21,10 +21,10 @@ export class WidgetAddComponent implements OnInit {
 
   ngOnInit() {
     this.widgetForm = this.formBuilder.group({
-      'title': [null, Validators.required],
-      'desc': [null, Validators.required],
-      'price': [null, Validators.required],
-      'date': [null, Validators.required]
+      title: [null, Validators.required],
+      desc: [null, Validators.required],
+      price: [null, Validators.required],
+      date: [null, Validators.required]
     });
   }
 
@@ -33,7 +33,7 @@ export class WidgetAddComponent implements OnInit {
     this.api.addWidget(form)
       .subscribe(res => {
         /* tslint:disable:no-string-literal */
-        const id = res['_id'];
+        const id = res['id'];
         /* tslint:enable:no-string-literal */
         this.isLoadingResults = false;
         this.router.navigate(['.widget-info', id]);

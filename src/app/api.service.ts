@@ -7,7 +7,7 @@ import {Widget} from './widget';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = '/api/v1/widgets';
+const apiUrl = 'http://localhost:3000/api/v1/widgets';
 
 @Injectable({
   providedIn: 'root'
