@@ -1,5 +1,5 @@
 export class Widget {
-  id: number;
+  _id: string;
   title: string;
   date: Date;
   price: number;

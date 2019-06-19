@@ -33,7 +33,7 @@ export class WidgetAddComponent implements OnInit {
     this.api.addWidget(form)
       .subscribe(res => {
         /* tslint:disable:no-string-literal */
-        const id = res['id'];
+        let id = res['_id'];
         /* tslint:enable:no-string-literal */
         this.isLoadingResults = false;
         this.router.navigate(['.widget-info', id]);

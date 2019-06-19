@@ -21,7 +21,7 @@
       </dl>
     </mat-card-content>
     <mat-card-actions>
-      <a mat-flat-button color="primary" [routerLink]="['/widget-edit', widget.id]">
+      <a mat-flat-button color="primary" [routerLink]="['/widget-edit', widget._id]">
         <mat-icon>Edit</mat-icon>
       </a>
       <a mat-flat-button color="warn" (click)="deleteWidget(widget.id)">

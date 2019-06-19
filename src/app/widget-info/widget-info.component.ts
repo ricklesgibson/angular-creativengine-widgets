@@ -9,7 +9,7 @@ import {Widget} from '../widget';
   styleUrls: ['./widget-info.component.css']
 })
 export class WidgetInfoComponent implements OnInit {
-  widget: Widget = {id: null, date: null, price: null, title: '', desc: ''};
+  widget: Widget = {_id: '', date: null, price: null, title: '', desc: ''};
   isLoadingResults = true;
 
   constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) {

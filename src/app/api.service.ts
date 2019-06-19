@@ -33,7 +33,7 @@ export class ApiService {
 
   addWidget(widget): Observable<Widget> {
     return this.http.post<Widget>(apiUrl, widget, httpOptions).pipe(
-      tap((widget: Widget) => console.log(`added widget w/ id=${widget.id}`)),
+      tap((widget: Widget) => console.log(`added widget w/ id=${widget._id}`)),
       catchError(this.handleError<Widget>('addWidget'))
     );
   }

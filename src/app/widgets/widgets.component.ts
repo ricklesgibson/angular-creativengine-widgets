@@ -9,7 +9,7 @@ import {Widget} from '../widget';
   styleUrls: ['./widgets.component.css']
 })
 export class WidgetsComponent implements OnInit {
-  displayedColumns: ['title', 'price', 'desc', 'date'];
+  displayedColumns: string[] = ['title', 'desc'];
   data: Widget[] = [];
   isLoadingResults = true;
 

@@ -10,7 +10,8 @@ import {FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validat
 })
 export class WidgetEditComponent implements OnInit {
   widgetForm: FormGroup;
-  id = '';
+  // tslint:disable-next-line:variable-name
+  _id = '';
   title = '';
   desc = '';
   price: number = null;
@@ -21,7 +22,9 @@ export class WidgetEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getWidget(this.route.snapshot.params.id);
+    /* tslint:disable:no-string-literal */
+    this.getWidget(this.route.snapshot.params['id']);
+    /* tslint:enable:no-string-literal */
     this.widgetForm = this.formBuilder.group({
       title: [null, Validators.required],
       desc: [null, Validators.required],
@@ -32,7 +35,7 @@ export class WidgetEditComponent implements OnInit {
 
   getWidget(id) {
     this.api.getWidget(id).subscribe(data => {
-      this.id = data.id.toString();
+      this._id = data._id.toString();
       this.widgetForm.setValue({
         title: data.title,
         desc: data.desc,
@@ -44,10 +47,10 @@ export class WidgetEditComponent implements OnInit {
 
   onFormSubmit(form: NgForm) {
     this.isLoadingResults = true;
-    this.api.updateWidget(this.id, form)
+    this.api.updateWidget(this._id, form)
       .subscribe(res => {
         /* tslint:disable:no-string-literal */
-        const id = res['id'];
+        const id = res['_id'];
         /* tslint:enable:no-string-literal */
         this.isLoadingResults = false;
         this.router.navigate(['/widget-info', id]);
@@ -57,7 +60,7 @@ export class WidgetEditComponent implements OnInit {
       });
   }
   widgetInfo() {
-    this.router.navigate(['/widget-info', this.id]);
+    this.router.navigate(['/widget-info', this._id]);
   }
 
 }
