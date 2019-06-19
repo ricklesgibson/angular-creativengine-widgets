@@ -1,3 +1,37 @@
-<p>
-  widget-edit works!
-</p>
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" (click)="widgetInfo()"><mat-icon>info</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+    <form [formGroup]="widgetForm" (ngSubmit)="onFormSubmit(widgetForm.value)">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Widget Title" formControlName="title"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!widgetForm.get('title').valid && widgetForm.get('title').touched">Please enter Widget Title</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Widget Desc" formControlName="desc"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!widgetForm.get('desc').valid && widgetForm.get('desc').touched">Please enter Widget Description</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Widget Price" formControlName="price"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!widgetForm.get('price').valid && widgetForm.get('price').touched">Please enter Widget Price</span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" [disabled]="!widgetForm.valid" mat-flat-button color="primary"><mat-icon>Save</mat-icon></button>
+      </div>
+    </form>
+  </mat-card>
+</div>
