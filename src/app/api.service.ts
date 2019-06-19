@@ -14,20 +14,11 @@ const apiUrl = '/api/v1/widgets';
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) {
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.log(error);
-      return of(result as T);
-    };
-  }
-
+  constructor(private http: HttpClient) { }
   getWidgets(): Observable<Widget[]> {
     return this.http.get<Widget[]>(apiUrl)
       .pipe(
-        tap(heroes => console.log('retrieved widgets')),
+        tap(widgets => console.log('retrieved widgets')),
         catchError(this.handleError('getWidgets', []))
       );
   }
@@ -62,5 +53,12 @@ export class ApiService {
       catchError(this.handleError<Widget>('deleteWidget'))
     );
   }
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.log(error);
+      return of(result as T);
+    };
+  }
+
 }
 

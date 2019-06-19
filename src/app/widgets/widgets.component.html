@@ -1,3 +1,4 @@
+<!--I think something with this ngIf is causing an issue with the DOM-->
 <div class="example-container mat-elevation-z8">
   <div class=example-loading-shade"
        *ngIF="isLoadingResults">
@@ -37,7 +38,7 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="'/widget-info/', row.id"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/widget-info/', row.id]"></tr>
     </table>
   </div>
 </div>

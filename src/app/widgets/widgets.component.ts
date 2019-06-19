@@ -29,3 +29,4 @@ export class WidgetsComponent implements OnInit {
   }
 
 }
+

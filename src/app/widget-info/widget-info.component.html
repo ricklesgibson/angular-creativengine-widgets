@@ -1,3 +1,32 @@
-<p>
-  widget-info works!
-</p>
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/widgets']">
+      <mat-icon>List</mat-icon>
+    </a>
+  </div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title><h2>{{widget.title}}</h2></mat-card-title>
+      <mat-card-subtitle>{{widget.desc}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <dt>Widget Price:</dt>
+        <dd>{{widget.price}}</dd>
+        <dt>Date</dt>
+        <dd>{{widget.date}}</dd>
+      </dl>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" [routerLink]="['/widget-edit', widget.id]">
+        <mat-icon>Edit</mat-icon>
+      </a>
+      <a mat-flat-button color="warn" (click)="deleteWidget(widget.id)">
+        <mat-icon>Delete</mat-icon>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>
